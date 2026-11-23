@@ -8,29 +8,18 @@ An entry for the [make.fun bounty "Sum up 23 November's world news in one image"
 
 ## The image
 
-A 1024&times;1024 newspaper front page — **WORLD NEWS, Monday 23 November 2026** — summing up the day in five stories:
+A 1024&times;1024 newspaper front page — **WORLD NEWS, Monday 23 November 2026** — summing up the day in **35 stories**, built on the template the daily winners use:
 
-1. **CLIMATE TALKS COLLAPSE** — COP31 ends in Antalya with no deal, as nations split over fossil fuels; the longest summit ever, and the first breakdown since 2009.
-2. **TRUMP THREATENS TO SINK IRANIAN SHIPS** — after a US strike on an oil tanker, the president vows to sink Iranian vessels; two tankers were hit in the Strait of Hormuz.
-3. **MARKETS REBOUND AFTER AI ROUT** — Nasdaq futures jump 3% and the Dow gains 700 after Asia's sell-off; Seoul's KOSPI fell 5%.
-4. **RUSSIAN FRIGATE SINKS OFF LIBYA** — the *Merkury* goes down at Benghazi after a suspected Ukrainian naval drone strike.
-5. **AI CLAIMS PROOF OF A 167-YEAR-OLD MATH MYSTERY** — Anthropic's Levent Alp&ouml;ge and Claude say they have proved the Riemann Hypothesis; machine checkers agree, the $1m prize stays open.
+- **THE DAY IN UTC** — 7 events with their UTC times
+- **THE DAY IN NUMBERS** — 6 big numbers (+31% Nvidia, +7% Nasdaq, 258 House seats, 24 dead, 11 killed, 429 flights cancelled)
+- **3 big leads:** COP31 collapses in Antalya; Trump threatens Iranian ships after two tankers are hit in the Strait of Hormuz; Nvidia reinstates Jensen Huang and shares soar 31%
+- **10 more illustrated stories** (Merkury sinks, Riemann proof, Dymer strike, Indonesia factory fire, Democrats' 258 seats, NATO on Russian missiles, Delta outage, India 720-9, Puigdemont, Hasina)
+- **WHERE IT HAPPENED** — a world map with numbered pins and per-region counts
+- **ALSO ON MONDAY 23 NOVEMBER** — briefs 14–35, one line each
+- **DATE CHECK** — what was deliberately left out (first reported before Monday) and what had not happened yet
 
-Plus an **IN BRIEF** strip: Trump, Putin &amp; Xi meet in Shenzhen; Democrats win their largest House majority since 1992; a M6.5 quake strikes the Vanuatu region; South Korea's exports top $1 trillion for the first time.
+Every story was verified against AP, Reuters, AFP, BBC, CNN, Le Monde, The Hindu, WSJ, Xinhua and the Guardian. The full sourced list is in `stories.md`.
 
-Sources: CNN, BBC, Reuters, Le Monde, The Hindu, WSJ — all stories from Monday 23 November 2026.
+## How it runs
 
-## The program
-
-`main.ts` (Node 22, standard library only) copies the image held in this repository (`entry.png`) to `/output/entry.png`. No network, no randomness — every run writes the same bytes.
-
-```sh
-mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
-```
-
-## Files
-
-- `main.ts` — the entrypoint: copies `entry.png` to the output directory
-- `entry.png` — the 1024&times;1024 front-page image (PNG, under 1 MiB)
-- `LICENSE` — MIT
-- `.makefun/owner.json` — payout wallet claim
+`main.ts` copies the pre-rendered `entry.png` (1024&times;1024, deterministic) to `/output/entry.png`. No network, no randomness — two runs write identical bytes.
